@@ -28,8 +28,7 @@ jobs:
       shell: bash
       id: set-version
       run: echo "::set-output name=version::$(node .github/workflows/set-version.js ${{ github.ref }})"
-      - name: npm install, build, and test
-      run: npm run build
+    - run: npm run build   
     - run: npm run package
     - name: Create Release
       id: create_versioned_release
