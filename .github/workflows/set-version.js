@@ -8,7 +8,10 @@ if (!tagVersion || !tagVersion.startsWith('v')) {
   process.exitCode = 1;
 } else {
   manifest.version = tagVersion.substring(1); // strip the 'v'-prefix
-  manifest.download = `https://github.com/Spice-King/foundry-swnr/releases/download/${tagVersion}/swnr-${tagVersion}.zip`
+  manifest.download = `https://github.com/gludington/ChatReactions/releases/download/${tagVersion}/ChatReactions-${tagVersion}.zip`
+  manifest.manifest = `https://github.com/gludington/ChatReactions/releases/download/${tagVersion}/module.json`,
+  manifest.changelog= `https://github.com/gludington/ChatReactions/blob/${tagVersion}/CHANGELOG.md`,
+  manifest.readme = `https://github.com/gludington/ChatReactions/blob/${tagVersion}/CHANGELOG.md`,
   fs.writeFileSync('src/module.json', JSON.stringify(manifest, null, 4)); // pretty print JSON back to module.json
   console.log(tagVersion);
 }
